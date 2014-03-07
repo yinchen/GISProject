@@ -84,20 +84,22 @@
         imageParameters.format = "png24"; //set the image type to PNG24,
 
         //Takes a URL to a non cached map service.
+        
         ecoregion = new ArcGISDynamicMapServiceLayer("http://maps.lib.purdue.edu:6080/arcgis/rest/services/ecoregion/MapServer", {
           opacity: 0,
           "imageParameters": imageParameters
         });
         map.addLayer(ecoregion);
+		
+		hillshade = new Tiled("http://mapsdev.lib.purdue.edu:6080/arcgis/rest/services/Purdue/Isee_1_0_HillShade_PNG8/MapServer", {opacity:0});
+		map.addLayer(hillshade);
+		pm = new Tiled("http://mapsdev.lib.purdue.edu:6080/arcgis/rest/services/Purdue/Isee_1_0_pm_1layerPNG8/MapServer", {opacity:0});
+		map.addLayer(pm);
+		
 		FNR_Property = new ArcGISDynamicMapServiceLayer("http://maps.lib.purdue.edu:6080/arcgis/rest/services/Purdue/FNR_Property/MapServer", {
           opacity: 1,
         });
         map.addLayer(FNR_Property);
-		hillshade = new Tiled("http://mapsdev.lib.purdue.edu:6080/arcgis/rest/services/Purdue/Isee_1_0_HillShade_PNG8/MapServer", {opacity:0.5});
-		map.addLayer(hillshade);
-		pm = new Tiled("http://mapsdev.lib.purdue.edu:6080/arcgis/rest/services/Purdue/Isee_1_0_pm_1layerPNG8/MapServer", {opacity:0.5});
-		map.addLayer(pm);
-		
 		//add the basemap gallery, in this case we'll display maps from ArcGIS.com including bing maps
         var basemapGallery = new BasemapGallery({
           showArcGISBasemaps: true,
@@ -223,11 +225,13 @@
 			
 		}
 
+
+
 		
 		
 </script> 
 <!-- 
-      <!--[if lt IE 9]>
+      <!-- [if lt IE 9]>
     <script src="/sites/all/themes/zen/js/html5-respond.js"></script>
     <![endif]-->
   <style type="text/css" charset="utf-8">/* See license.txt for terms of usage */
@@ -282,50 +286,91 @@
 	  <div style="position:absolute; right:20px; top:10px; z-Index:999; border-color: white; border-style: ridge; border-width: medium;">
           <div id="titlepane" data-dojo-type="dijit/TitlePane" data-dojo-props="title:'Switch Basemap', closable:false,  open:false">
             <div data-dojo-type="dijit/layout/ContentPane" style="width:380px; height:280px; overflow:auto;">
-			<div id="galleryNode_basemap_8" class="esriBasemapGalleryNode esriBasemapGallerySelectedNode" onClick="setbasemap(this);"  >
-			<a href="javascript:void(0);">
-			<img class="esriBasemapGalleryThumbnail" src="http://www.arcgis.com/sharing/rest/content/items/86de95d4e0244cba80f0fa2c9403a7b2/info/thumbnail/tempimagery.jpg">
-			</a>
-			<div class="esriBasemapGalleryLabelContainer">
-			<span alt="Imagery" title="Imagery">Imagery</span>
-			</div>
-			</div>
-			<div id="galleryNode_basemap_7" class="esriBasemapGalleryNode" onClick="setbasemap(this);">
-			<a href="javascript:void(0);">
-			<img class="esriBasemapGalleryThumbnail" src="http://www.arcgis.com/sharing/rest/content/items/413fd05bbd7342f5991d5ec96f4f8b18/info/thumbnail/tempimagery_with_labels_ne_usa.png">
-			</a>
-			<div class="esriBasemapGalleryLabelContainer">
-			<span alt="Imagery with Labels" title="Imagery with Labels">Imagery with Labels</span>
-			</div>
-			</div>
-			<div id="galleryNode_basemap_6" class="esriBasemapGalleryNode" onClick="setbasemap(this);">
-			<a href="javascript:void(0);">
-			<img class="esriBasemapGalleryThumbnail" src="http://www.arcgis.com/sharing/rest/content/items/d8855ee4d3d74413babfb0f41203b168/info/thumbnail/tempstreets.jpg">
-			</a>
-			<div class="esriBasemapGalleryLabelContainer">
-			<span alt="Streets" title="Streets">Streets</span>
-			</div>
-			</div>
-			<div id="galleryNode_basemap_5" class="esriBasemapGalleryNode" onClick="setbasemap(this);">
-			<a href="javascript:void(0);">
-			<img class="esriBasemapGalleryThumbnail" src="http://www.arcgis.com/sharing/rest/content/items/6e03e8c26aad4b9c92a87c1063ddb0e3/info/thumbnail/topo_map_2.jpg">
-			</a>
-			<div class="esriBasemapGalleryLabelContainer">
-			<span alt="Topographic" title="Topographic">Topographic</span>
-			</div>
-			</div>
-			<div id="galleryNode_basemap_4" class="esriBasemapGalleryNode" onClick="setbasemap(this);">
-			<a href="javascript:void(0);">
-			<img class="esriBasemapGalleryThumbnail" src="http://www.arcgis.com/sharing/rest/content/items/8b3b470883a744aeb60e5fff0a319ce7/info/thumbnail/templight_gray_canvas_with_labels__ne_usa.png">
-			</a>
-			<div class="esriBasemapGalleryLabelContainer">
-			<span alt="Gray Canvas" title="Gray Canvas">Gray Canvas</span>
-			</div>
-			</div>
+			
+			<div clase="part1">
+				<div id="galleryNode_basemap_8" onClick="setbasemap(this);"  >
+				<a href="javascript:void(0);">
+					<div class="esriBasemapGalleryLabelContainer">
+						<span alt="Imagery" title="Imagery">Imagery</span>
+					</div>
+				</a>
+				</div>
 
-</div>
-          </div>
-        </div>
+				<div id="galleryNode_basemap_7" onClick="setbasemap(this);">
+				<a href="javascript:void(0);">
+					<div class="esriBasemapGalleryLabelContainer">
+						<span alt="Imagery with Labels" title="Imagery with Labels">Imagery with Labels</span>
+					</div>
+				</a>
+				</div>
+
+				<div id="galleryNode_basemap_6" onClick="setbasemap(this);">
+				<a href="javascript:void(0);">
+					<div class="esriBasemapGalleryLabelContainer">
+						<span alt="Streets" title="Streets">Streets</span>
+					</div>
+				</a>
+				</div>
+
+				<div id="galleryNode_basemap_5" onClick="setbasemap(this);">
+				<a href="javascript:void(0);">
+					<div class="esriBasemapGalleryLabelContainer">
+					<span alt="Topographic" title="Topographic">Topographic</span>
+					</div>
+				</a>
+				</div>
+
+				<div id="galleryNode_basemap_4" onClick="setbasemap(this);">
+				<a href="javascript:void(0);">
+				<div class="esriBasemapGalleryLabelContainer">
+				<span alt="Gray Canvas" title="Gray Canvas">Gray Canvas</span>
+				</div>
+				</a>
+				</div>
+			</div>
+			</div>
+			<script>
+			require(["dijit/form/Button", "dojo/domReady!"], function(Button){
+			    var button1 = new Button({
+			        onClick: function(){
+						ecoregion.setOpacity(1);
+						pm.setOpacity(0);
+						hillshade.setOpacity(0);
+		        }
+			    }, "button1");
+			    var button2 = new Button({
+			        onClick: function(){
+						hillshade.setOpacity(1);
+						ecoregion.setOpacity(0);
+						pm.setOpacity(0);
+		        }
+			    }, "button2");
+			    var button3 = new Button({
+			        onClick: function(){
+						pm.setOpacity(1);
+						ecoregion.setOpacity(0);
+						hillshade.setOpacity(0);
+		        }
+			    }, "button3");
+    			var button3 = new Button({
+			        onClick: function(){
+						ecoregion.setOpacity(0);
+						hillshade.setOpacity(0);
+						pm.setOpacity(0);
+		        }
+			    }, "button4");
+			});
+			</script>
+			<div class = "part2" >
+				<div id="button1" >Ecoregion</div>
+				<div id="button2" >Hillshade</div>
+				<div id="button3" >PM</div>
+				<div id="button4" >Empty</div>
+			</div>	
+
+		</div>
+      </div>
+	  </div>
 	  
     </div>
 
@@ -333,16 +378,63 @@
 
         <div style="float:left; margin-left:30px; width:20%">
         <div id="overview" style="border: thin solid #000000; height:280px;"></div>
-		<div style="font-family: Arial, Helvetica, sans-serif; color: #494949; font-size: 16px; margin-top:30px;">Dominant parent material layer opacity: </div>
-		<div id="slider1"></div>
-		<div style="font-family: Arial, Helvetica, sans-serif; color: #494949; font-size: 16px; margin-top:30px;">Hillshade layer opacity: </div>
-		<div id="slider2"></div>
-		<div style="font-family: Arial, Helvetica, sans-serif; color: #494949; font-size: 16px; margin-top:30px;">Ecoregions</div>
-		<div id="slider"></div>
-       
+        <script>
+      	require([
+	        "esri/tasks/query", 
+	        "esri/tasks/QueryTask",
+	        "dojo/dom",
+	        "dojo/on",
+	        "dojo/domReady!"
+	      	], function (Query, QueryTask, dom, on) {
+
+	        var queryTask = new QueryTask("http://maps.lib.purdue.edu:6080/arcgis/rest/services/Purdue/FNR_Property/MapServer/6");
+
+	        var query = new Query();
+	        query.returnGeometry = false;
+	        query.outFields = ["Name","XMin","YMin","XMax","YMax"];
+
+	       
+	          //while loop to query
+	           query.where = "Name <> ''";	
+		       queryTask.execute(query, populateOptions);
+	          //}
+
+	        function populateOptions (results) {
+			var resultCount = results.features.length;
+			var resultItems = [];
+			for (var i = 0; i < resultCount; i++){
+				var featureAttributes = results.features[i].attributes;
+				for (var attr in featureAttributes){
+					resultItems.push(featureAttributes[attr] + ":");
+				}
+				select = document.getElementById("property");
+				var opt= document.createElement('option');
+				temp = resultItems.join("");
+				var values = temp.split(":");		
+				var name = values[0];
+				opt.innerHTML = name;
+				opt.value = temp;
+				select.appendChild(opt);
+				resultItems = [];	
+			}
+        }
+		});
 		
-		
+		function fnZoomToProperty() {
+	        var temp = document.getElementById("property");
+	        if(temp.value!="")
+			{
+				var values = temp.value.split(":");
+				var extent = new esri.geometry.Extent(values[1]/100000, values[2]/100000, values[3]/100000, values[4]/100000, new esri.SpatialReference({ wkid: 4326 }));
+				map.setExtent(extent);
+			}			
+    	}
+        </script>
+        <select name="property" onChange="fnZoomToProperty()" id="property">
+		<option selected="selected" value="">   </option>
+        </select>
         </div>
 		</div>
 		
-</body></html>
+</body>
+</html>
