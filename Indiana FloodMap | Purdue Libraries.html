@@ -1,441 +1,463 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=7,IE=9">
-  <meta charset="utf-8">
-<link rel="shortcut icon" href="http://www.lib.purdue.edu/sites/all/themes/cssredux/favicon.ico" type="image/vnd.microsoft.icon">
-<meta content="GIS Services" about="/gis" property="dc:title">
-<link rel="canonical" href="http://www.lib.purdue.edu/gis">
-<meta name="Generator" content="Drupal 7 (http://drupal.org)">
-<link rel="shortlink" href="http://www.lib.purdue.edu/node/66">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9">
+        <meta charset="utf-8">
+        <link rel="shortcut icon" href="http://www.lib.purdue.edu/sites/all/themes/cssredux/favicon.ico" type="image/vnd.microsoft.icon">
+        <meta content="GIS Services" about="/gis" property="dc:title">
+        <link rel="canonical" href="http://www.lib.purdue.edu/gis">
+        <meta name="Generator" content="Drupal 7 (http://drupal.org)">
+        <link rel="shortlink" href="http://www.lib.purdue.edu/node/66">
 
-<!-- add by Yue-->
- <link rel="stylesheet" href="http://js.arcgis.com/3.7/js/dojo/dijit/themes/claro/claro.css">  
- <link rel="stylesheet" href="http://js.arcgis.com/3.7/js/dojo/dijit/themes/nihilo/nihilo.css"> 
- <link rel="stylesheet" href="http://js.arcgis.com/3.7/js/esri/css/esri.css">
- <script src="http://js.arcgis.com/3.7/"></script>
+        <!-- add by Yue-->
+        <link rel="stylesheet" href="http://js.arcgis.com/3.7/js/dojo/dijit/themes/claro/claro.css">  
+        <link rel="stylesheet" href="http://js.arcgis.com/3.7/js/dojo/dijit/themes/nihilo/nihilo.css"> 
+        <link rel="stylesheet" href="http://js.arcgis.com/3.7/js/esri/css/esri.css">
+        <script src="http://js.arcgis.com/3.7/"></script>
 
-  <title>Indiana FloodMap | Purdue Libraries</title>
+        <title>Indiana Resource | Purdue Libraries</title>
 
-      <meta name="MobileOptimized" content="width">
-    <meta name="HandheldFriendly" content="true">
-    <meta name="viewport" content="width=device-width">
-    <meta http-equiv="cleartype" content="on">
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width">
+        <meta http-equiv="cleartype" content="on">
 
-<style>@import url("http://www.lib.purdue.edu/modules/aggregator/aggregator.css?muifpk");
-@import url("http://www.lib.purdue.edu/sites/all/modules/date/date_api/date.css?muifpk");
-@import url("http://www.lib.purdue.edu/sites/all/modules/date/date_popup/themes/datepicker.1.7.css?muifpk");
-@import url("http://www.lib.purdue.edu/sites/all/modules/date/date_repeat_field/date_repeat_field.css?muifpk");
-@import url("http://www.lib.purdue.edu/modules/field/theme/field.css?muifpk");
-@import url("http://www.lib.purdue.edu/modules/node/node.css?muifpk");
-@import url("http://www.lib.purdue.edu/sites/all/modules/office_hours/office_hours.css?muifpk");
-@import url("http://www.lib.purdue.edu/modules/search/search.css?muifpk");
-@import url("http://www.lib.purdue.edu/modules/user/user.css?muifpk");
-@import url("http://www.lib.purdue.edu/sites/all/modules/views/css/views.css?muifpk");</style>
-<style>@import url("http://www.lib.purdue.edu/sites/all/modules/ctools/css/ctools.css?muifpk");
-@import url("http://www.lib.purdue.edu/sites/all/modules/panels/css/panels.css?muifpk");
-@import url("http://www.lib.purdue.edu/sites/all/modules/views_slideshow/views_slideshow.css?muifpk");
-@import url("http://www.lib.purdue.edu/sites/all/modules/menu_minipanels/css/menu_minipanels.css?muifpk");
-@import url("http://www.lib.purdue.edu/sites/all/modules/panels/plugins/layouts/twocol/twocol.css?muifpk");</style>
-<style>@import url("http://www.lib.purdue.edu/sites/all/themes/cssredux/assets/css/normalize.css?muifpk");
-@import url("http://www.lib.purdue.edu/sites/all/themes/cssredux/css/fixed-width.css?muifpk");
-@import url("http://www.lib.purdue.edu/sites/all/themes/cssredux/assets/css/bootstrap-purdue.css?muifpk");
-@import url("http://www.lib.purdue.edu/sites/all/themes/cssredux/assets/css/site.css?muifpk");
-@import url("http://www.lib.purdue.edu/sites/all/themes/cssredux/css/drupal.css?muifpk");
-@import url("http://www.lib.purdue.edu/sites/all/themes/cssredux/css/jqueryUI/jquery.ui.all.css?muifpk");
-@import url("http://www.lib.purdue.edu/sites/all/themes/cssredux/css/tabs.css?muifpk");
-@import url("http://www.lib.purdue.edu/sites/all/themes/cssredux/css/nodes.css?muifpk");
-@import url("http://www.lib.purdue.edu/sites/all/themes/cssredux/css/print.css?muifpk");</style>
+        <style>@import url("http://www.lib.purdue.edu/modules/aggregator/aggregator.css?muifpk");
+            @import url("http://www.lib.purdue.edu/sites/all/modules/date/date_api/date.css?muifpk");
+            @import url("http://www.lib.purdue.edu/sites/all/modules/date/date_popup/themes/datepicker.1.7.css?muifpk");
+            @import url("http://www.lib.purdue.edu/sites/all/modules/date/date_repeat_field/date_repeat_field.css?muifpk");
+            @import url("http://www.lib.purdue.edu/modules/field/theme/field.css?muifpk");
+            @import url("http://www.lib.purdue.edu/modules/node/node.css?muifpk");
+            @import url("http://www.lib.purdue.edu/sites/all/modules/office_hours/office_hours.css?muifpk");
+            @import url("http://www.lib.purdue.edu/modules/search/search.css?muifpk");
+            @import url("http://www.lib.purdue.edu/modules/user/user.css?muifpk");
+            @import url("http://www.lib.purdue.edu/sites/all/modules/views/css/views.css?muifpk");</style>
+        <style>@import url("http://www.lib.purdue.edu/sites/all/modules/ctools/css/ctools.css?muifpk");
+            @import url("http://www.lib.purdue.edu/sites/all/modules/panels/css/panels.css?muifpk");
+            @import url("http://www.lib.purdue.edu/sites/all/modules/views_slideshow/views_slideshow.css?muifpk");
+            @import url("http://www.lib.purdue.edu/sites/all/modules/menu_minipanels/css/menu_minipanels.css?muifpk");
+            @import url("http://www.lib.purdue.edu/sites/all/modules/panels/plugins/layouts/twocol/twocol.css?muifpk");</style>
+        <style>@import url("http://www.lib.purdue.edu/sites/all/themes/cssredux/assets/css/normalize.css?muifpk");
+            @import url("http://www.lib.purdue.edu/sites/all/themes/cssredux/css/fixed-width.css?muifpk");
+            @import url("http://www.lib.purdue.edu/sites/all/themes/cssredux/assets/css/bootstrap-purdue.css?muifpk");
+            @import url("http://www.lib.purdue.edu/sites/all/themes/cssredux/assets/css/site.css?muifpk");
+            @import url("http://www.lib.purdue.edu/sites/all/themes/cssredux/css/drupal.css?muifpk");
+            @import url("http://www.lib.purdue.edu/sites/all/themes/cssredux/css/jqueryUI/jquery.ui.all.css?muifpk");
+            @import url("http://www.lib.purdue.edu/sites/all/themes/cssredux/css/tabs.css?muifpk");
+            @import url("http://www.lib.purdue.edu/sites/all/themes/cssredux/css/nodes.css?muifpk");
+            @import url("http://www.lib.purdue.edu/sites/all/themes/cssredux/css/print.css?muifpk");</style>
 
 
-<script>
-	var map;
-	var floodmap;
-	var ovgraphic;
-	var dynamicfloodmap;
-      require([
-        "esri/map",
-		"esri/layers/ArcGISDynamicMapServiceLayer",
-        "esri/layers/ImageParameters",
-		"esri/layers/ArcGISTiledMapServiceLayer",
-		"esri/dijit/BasemapGallery",
-		"esri/arcgis/utils", 
-		"dojo/parser", 
-		"dijit/layout/BorderContainer", 
-		"dijit/layout/ContentPane", 
-		"dijit/TitlePane",
-		"dojo/domReady!"
-		], function(Map , ArcGISDynamicMapServiceLayer, ImageParameters, Tiled, BasemapGallery, arcgisUtils, parser) {   
+        <script>
+            var map;
+            var floodmap;
+            var ovgraphic;
+            var dynamicfloodmap;
+            require([
+            "esri/map",
+            "esri/layers/ArcGISDynamicMapServiceLayer",
+            "esri/layers/ImageParameters",
+            "esri/layers/ArcGISTiledMapServiceLayer",
+            "esri/dijit/BasemapGallery",
+            "esri/arcgis/utils", 
+            "esri/dijit/InfoWindow",
+            "dojo/parser", 
+            "dijit/layout/BorderContainer", 
+            "dijit/layout/ContentPane", 
+            "dijit/TitlePane",
+            "dojo/domReady!"
+            ], function(Map , ArcGISDynamicMapServiceLayer, ImageParameters, Tiled, BasemapGallery, arcgisUtils, InfoWindow, parser) {   
 
-        parser.parse();
+                parser.parse();
 
-        map = new Map("map", {
-          basemap: "hybrid",
-          center: [-86, 40],
-          zoom: 7,
-		  logo:false,
-		  showAttribution:false
-        });
+                var infoWindow = new esri.dijit.InfoWindow({}, dojo.create("div"));
+                infoWindow.startup();
 
-		// add flood map
-		
-		var imageParameters = new ImageParameters();
-        imageParameters.format = "png24"; //set the image type to PNG24,
+                map = new Map("map", {
+                    basemap: "hybrid",
+                    center: [-86, 40],
+                    zoom: 7,
+                    logo:false,
+                    showAttribution:false,
+                    infoWindow: infoWindow
+                });
 
-        //Takes a URL to a non cached map service.
-        
-        ecoregion = new ArcGISDynamicMapServiceLayer("http://maps.lib.purdue.edu:6080/arcgis/rest/services/ecoregion/MapServer", {
-          opacity: 0,
-          "imageParameters": imageParameters
-        });
-        map.addLayer(ecoregion);
-		
-		hillshade = new Tiled("http://mapsdev.lib.purdue.edu:6080/arcgis/rest/services/Purdue/Isee_1_0_HillShade_PNG8/MapServer", {opacity:0});
-		map.addLayer(hillshade);
-		pm = new Tiled("http://mapsdev.lib.purdue.edu:6080/arcgis/rest/services/Purdue/Isee_1_0_pm_1layerPNG8/MapServer", {opacity:0});
-		map.addLayer(pm);
-		
-		FNR_Property = new ArcGISDynamicMapServiceLayer("http://maps.lib.purdue.edu:6080/arcgis/rest/services/Purdue/FNR_Property/MapServer", {
-          opacity: 1,
-        });
-        map.addLayer(FNR_Property);
-		//add the basemap gallery, in this case we'll display maps from ArcGIS.com including bing maps
-        var basemapGallery = new BasemapGallery({
-          showArcGISBasemaps: true,
-          map: map
-        }, "basemapGallery");
-        basemapGallery.startup();
-        
-        basemapGallery.on("error", function(msg) {
-          console.log("basemap gallery error:  ", msg);
-        });
-		dojo.connect(map, "onLoad", initFunctionality);
-		
-		overviewMap = new esri.Map("overview", { slider: false, nav: false,logo:false,
-		  showAttribution:false,
-		  center: [-86, 40],
-          extent: new esri.geometry.Extent({xmin:-9813999.351583587,ymin:4404930.817577897,xmax:-9427447.431488799,ymax:5108257.068504248,spatialReference:{wkid:102100}})});
-		overbasemap = new esri.layers.ArcGISDynamicMapServiceLayer("http://mapsdev.lib.purdue.edu:6080/arcgis/rest/services/IN_county/MapServer");
-		overviewMap.addLayer(overbasemap);
-		dojo.connect(overviewMap,"onLoad", initOverview);
-		
-				       
-      });
-	  
-	  require([
-			"dojo/dom", "dojo/parser", "dijit/form/HorizontalSlider"
-		], function(dom, parser, HorizontalSlider){
+                // add flood map
 
-	
-			var slider = new HorizontalSlider({
-				name: "slider",
-				value: 0,
-				minimum: 0,
-				maximum: 1,
-				intermediateChanges: true,
-				style: "width:300px;height:10px;",
-				onChange: function(value){
-					ecoregion.setOpacity(value);
-				}
-			}, "slider");
-			var slider1 = new HorizontalSlider({
-				name: "slider1",
-				value: 0.5,
-				minimum: 0,
-				maximum: 1,
-				intermediateChanges: true,
-				style: "width:300px;height:10px;",
-				onChange: function(value){
-					pm.setOpacity(value);
-				}
-			}, "slider1");
-			var slider = new HorizontalSlider({
-				name: "slider2",
-				value: 0.5,
-				minimum: 0,
-				maximum: 1,
-				intermediateChanges: true,
-				style: "width:300px;height:10px;",
-				onChange: function(value){
-					hillshade.setOpacity(value);
-				}
-			}, "slider2");
-		});
-		
-		function initFunctionality(map) {
-				
-		dojo.connect(map, "onExtentChange", function(extent, point, levelchange, lod) {
-             try{   
-				if (ovgraphic == null) {
-                    var symbol = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_NULL, new esri.symbol.SimpleLineSymbol("solid", new dojo.Color([255, 0, 0]), 1), new dojo.Color([255, 255, 0]));
-                    var ovextentg = map.extent.intersects(overviewMap.extent.expand(0.99));
-                    ovgraphic = new esri.Graphic(ovextentg, symbol);
-                    overviewMap.graphics.add(ovgraphic);
-                }
-                else {
-                    ovgraphic.setGeometry(extent.intersects(overviewMap.extent.expand(0.99)));
-                    
-                }
-				if(lod.level>15)
-				{
-					map.addLayer(dynamicfloodmap);
-				}
-				else
-				{
-					map.removeLayer(dynamicfloodmap);
-				}
-				}
-               			
-				catch (err)
-				{
-				}
+                var imageParameters = new ImageParameters();
+                imageParameters.format = "png24"; //set the image type to PNG24,
+
+                //Takes a URL to a non cached map service.
+
+                ecoregion = new ArcGISDynamicMapServiceLayer("http://maps.lib.purdue.edu:6080/arcgis/rest/services/ecoregion/MapServer", {
+                    opacity: 0,
+                    "imageParameters": imageParameters
+                });
+                map.addLayer(ecoregion);
+
+                hillshade = new Tiled("http://mapsdev.lib.purdue.edu:6080/arcgis/rest/services/Purdue/Isee_1_0_HillShade_PNG8/MapServer", {opacity:0});
+                map.addLayer(hillshade);
+                pm = new Tiled("http://mapsdev.lib.purdue.edu:6080/arcgis/rest/services/Purdue/Isee_1_0_pm_1layerPNG8/MapServer", {opacity:0});
+                map.addLayer(pm);
+
+                FNR_Property = new ArcGISDynamicMapServiceLayer("http://maps.lib.purdue.edu:6080/arcgis/rest/services/Purdue/FNR_Property/MapServer", {
+                    opacity: 1,
+                });
+                map.addLayer(FNR_Property);
+                //add the basemap gallery, in this case we'll display maps from ArcGIS.com including bing maps
+                var basemapGallery = new BasemapGallery({
+                    showArcGISBasemaps: true,
+                    map: map
+                }, "basemapGallery");
+                basemapGallery.startup();
+
+                basemapGallery.on("error", function(msg) {
+                    console.log("basemap gallery error:  ", msg);
+                });
+                dojo.connect(map, "onLoad", initFunctionality);
+
+                overviewMap = new esri.Map("overview", { slider: false, nav: false,logo:false,
+                    showAttribution:false,
+                    center: [-86, 40],
+                    extent: new esri.geometry.Extent({xmin:-9813999.351583587,ymin:4404930.817577897,xmax:-9427447.431488799,ymax:5108257.068504248,spatialReference:{wkid:102100}})});
+                overbasemap = new esri.layers.ArcGISDynamicMapServiceLayer("http://mapsdev.lib.purdue.edu:6080/arcgis/rest/services/IN_county/MapServer");
+                overviewMap.addLayer(overbasemap);
+                dojo.connect(overviewMap,"onLoad", initOverview);
+
 
             });
-			}
-		function initOverview() {
-            overviewMap.disablePan();
-            overviewMap.disableScrollWheelZoom();
-            overviewMap.disableClickRecenter();
-            overviewMap.disableDoubleClickZoom();
-            overviewMap.disableShiftDoubleClickZoom();
-            overviewMap.disableKeyboardNavigation();
 
-        }
-	  function setbasemap(base){
-			switch(base.id)
-			{
-			case "galleryNode_basemap_8":
-				map.setBasemap("satellite");
-				break;
-			case "galleryNode_basemap_7":
-				map.setBasemap("hybrid");
-				break;
-			case "galleryNode_basemap_6":
-				map.setBasemap("streets");
-				break;
-			case "galleryNode_basemap_5":
-				map.setBasemap("topo");
-				break;
-			case "galleryNode_basemap_4":
-				map.setBasemap("gray");
-				break;
-			}
-			dijit.byId('titlepane').attr('open', false);
-			
-		}
+            require([
+            "dojo/dom", "dojo/parser", "dijit/form/HorizontalSlider"
+            ], function(dom, parser, HorizontalSlider){
 
 
+                var slider = new HorizontalSlider({
+                    name: "slider",
+                    value: 0,
+                    minimum: 0,
+                    maximum: 1,
+                    intermediateChanges: true,
+                    style: "width:300px;height:10px;",
+                    onChange: function(value){
+                        ecoregion.setOpacity(value);
+                    }
+                }, "slider");
+                var slider1 = new HorizontalSlider({
+                    name: "slider1",
+                    value: 0.5,
+                    minimum: 0,
+                    maximum: 1,
+                    intermediateChanges: true,
+                    style: "width:300px;height:10px;",
+                    onChange: function(value){
+                        pm.setOpacity(value);
+                    }
+                }, "slider1");
+                var slider = new HorizontalSlider({
+                    name: "slider2",
+                    value: 0.5,
+                    minimum: 0,
+                    maximum: 1,
+                    intermediateChanges: true,
+                    style: "width:300px;height:10px;",
+                    onChange: function(value){
+                        hillshade.setOpacity(value);
+                    }
+                }, "slider2");
+            });
 
-		
-		
-</script> 
-<!-- 
-      <!-- [if lt IE 9]>
-    <script src="/sites/all/themes/zen/js/html5-respond.js"></script>
-    <![endif]-->
-  <style type="text/css" charset="utf-8">/* See license.txt for terms of usage */
-.likeabutton {
-    text-decoration: none; font: menu;
-    display: inline-block; padding: 2px 8px;
-    background: ButtonFace; color: ButtonText;
-    border-style: solid; border-width: 2px;
-    border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight;
-}
-.likeabutton:active {
-    border-color: ButtonShadow ButtonHighlight ButtonHighlight ButtonShadow;
-}
-</style> 
-</head>
+            function initFunctionality(map) {
 
-<body class="claro html not-front not-logged-in no-sidebars page-node page-node- page-node-66 node-type-page section-gis">
-      <p id="skip-link">
-    </p>
-      <div>
-      		<header id="header" role="banner">
-			<div id="purdueLogo">
-				<a href="http://www.purdue.edu/">
-					<img src="template_files/purdueLogo.png" title="Purdue University Homepage" alt="Purdue University" height="64" width="202">
-				</a>
-			</div>
-			<div id="librariesLogo">
-				<a href="http://www.lib.purdue.edu/">
-					<img src="template_files/libraries.png" title="Libraries Homepage" alt="Purdue Libraries" height="30" width="264">
-				</a>
-			</div>
+                dojo.connect(map, "onExtentChange", function(extent, point, levelchange, lod) {
+                    try{   
+                        if (ovgraphic == null) {
+                            var symbol = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_NULL, new esri.symbol.SimpleLineSymbol("solid", new dojo.Color([255, 0, 0]), 1), new dojo.Color([255, 255, 0]));
+                            var ovextentg = map.extent.intersects(overviewMap.extent.expand(0.99));
+                            ovgraphic = new esri.Graphic(ovextentg, symbol);
+                            overviewMap.graphics.add(ovgraphic);
+                        }
+                        else {
+                            ovgraphic.setGeometry(extent.intersects(overviewMap.extent.expand(0.99)));
+
+                        }
+                        if(lod.level>15)
+                        {
+                            map.addLayer(dynamicfloodmap);
+                        }
+                        else
+                        {
+                            map.removeLayer(dynamicfloodmap);
+                        }
+                    }
+
+                    catch (err)
+                    {
+                    }
+
+                });
+            }
+            function initOverview() {
+                overviewMap.disablePan();
+                overviewMap.disableScrollWheelZoom();
+                overviewMap.disableClickRecenter();
+                overviewMap.disableDoubleClickZoom();
+                overviewMap.disableShiftDoubleClickZoom();
+                overviewMap.disableKeyboardNavigation();
+
+            }
+            function setbasemap(base){
+                switch(base.id)
+                {
+                    case "galleryNode_basemap_8":
+                    map.setBasemap("satellite");
+                    break;
+                    case "galleryNode_basemap_7":
+                    map.setBasemap("hybrid");
+                    break;
+                    case "galleryNode_basemap_6":
+                    map.setBasemap("streets");
+                    break;
+                    case "galleryNode_basemap_5":
+                    map.setBasemap("topo");
+                    break;
+                    case "galleryNode_basemap_4":
+                    map.setBasemap("gray");
+                    break;
+                    case "ecoregion":
+                    ecoregion.setOpacity(1);
+                    pm.setOpacity(0);
+                    hillshade.setOpacity(0);
+                    break;
+                    case "pm":
+                    ecoregion.setOpacity(0);
+                    pm.setOpacity(1);
+                    hillshade.setOpacity(0);
+                    break;
+                    case "hillshade":
+                    ecoregion.setOpacity(0);
+                    pm.setOpacity(0);
+                    hillshade.setOpacity(1);
+                    break;
+                    case "empty":
+                    ecoregion.setOpacity(0);
+                    pm.setOpacity(0);
+                    hillshade.setOpacity(0);
+                    break;
+
+                }
+                dijit.byId('titlepane').attr('open', true);
+
+            }
+        </script> 
+        <!-- this part used to zoomin selected property -->
+        <script>
+            var point;
+            require([
+            "esri/tasks/query", 
+            "esri/tasks/QueryTask",
+            "esri/geometry/Point",
+            "dojo/dom",
+            "dojo/on",
+            "esri/InfoTemplate",
+            "dojo/domReady!"
+            ], function (Query, QueryTask, Point, dom, on, InfoTemplate) {
+
+                var queryTask = new QueryTask("http://maps.lib.purdue.edu:6080/arcgis/rest/services/Purdue/FNR_Property/MapServer/6");
+
+                var query = new Query();
+                query.returnGeometry = false;
+                query.outFields = ["Name","XMin","YMin","XMax","YMax","Code","Acerage"];
+                query.where = "Name <> ''"; 
+                queryTask.execute(query, populateOptions);
+
+
+                point = new Point(0,0,esri.SpatialReference({wkid:3857}));
+                function populateOptions (results) {
+                    var resultCount = results.features.length;
+                    var resultItems = [];
+                    for (var i = 0; i < resultCount; i++){
+                        var featureAttributes = results.features[i].attributes;
+                        for (var attr in featureAttributes){
+                            resultItems.push(featureAttributes[attr] + ":");
+                        }
+                        select = document.getElementById("property");
+                        var opt= document.createElement('option');
+                        temp = resultItems.join("");
+                        var values = temp.split(":");       
+                        var name = values[0];
+                        opt.innerHTML = name;
+                        opt.value = temp;
+                        select.appendChild(opt);
+                        resultItems = [];   
+                    }
+                }
+            });
+            function fnZoomToProperty() {
+                var temp = document.getElementById("property");
+                if(temp.value!="")
+                {
+                    var values = temp.value.split(":");
+                    var extent = new esri.geometry.Extent(parseInt(values[1])-500, parseInt(values[2])-500, parseInt(values[3])+500, parseInt(values[4])+500, new esri.SpatialReference({ wkid: 3857 }));
+
+                    map.infoWindow.setTitle(values[0]);
+                    map.infoWindow.setContent("Code: " + values[5] + "<br>Acerage: "+ parseInt(values[6]));
+                    point.setX((parseInt(values[1])+parseInt(values[3]))/2);
+                    point.setY((parseInt(values[2])+parseInt(values[4]))/2);
+                    map.infoWindow.resize(200,100);
+                    map.infoWindow.show(point,esri.dijit.InfoWindow.ANCHOR_UPPERRIGHT); 
+                    map.setExtent(extent);
+
+
+                }
+                else{
+                    map.infoWindow.hide();
+                }           
+            }
+        </script>
+        <!-- [if lt IE 9]>
+        <script src="/sites/all/themes/zen/js/html5-respond.js"></script>
+        <![endif]-->
+        <style type="text/css" charset="utf-8">/* See license.txt for terms of usage */
+            .likeabutton {
+                text-decoration: none; font: menu;
+                display: inline-block; padding: 2px 8px;
+                background: ButtonFace; color: ButtonText;
+                border-style: solid; border-width: 2px;
+                border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight;
+            }
+            .likeabutton:active {
+                border-color: ButtonShadow ButtonHighlight ButtonHighlight ButtonShadow;
+            }
+        </style> 
+    </head>
+
+    <body class="claro html not-front not-logged-in no-sidebars page-node page-node- page-node-66 node-type-page section-gis">
+        <p id="skip-link">
+        </p>
+        <div>
+            <header id="header" role="banner">
+            <div id="purdueLogo">
+                <a href="http://www.purdue.edu/">
+                    <img src="template_files/purdueLogo.png" title="Purdue University Homepage" alt="Purdue University" height="64" width="202">
+                </a>
+            </div>
+            <div id="librariesLogo">
+                <a href="http://www.lib.purdue.edu/">
+                    <img src="template_files/libraries.png" title="Libraries Homepage" alt="Purdue Libraries" height="30" width="264">
+                </a>
+            </div>
             <div style="float:right; margin-right:60; margin-top:30px; font-family: Impact; font-size: x-large;"> 
                 <dl>
                     <dd>
-                        <h4>
-                            GIS Services</h4>
+                    <h4>
+                        GIS Services</h4>
                     </dd>
                 </dl>
+            </div>
+
+            </header>
         </div>
 
-		</header>
 
+        <div style="width:100%; display:block;">
+            <div style="float:left; margin-left:3%; width:10%">
+                <div style="position:relative" id="titlepane" data-dojo-type="dijit/TitlePane" data-dojo-props="title:'Switch Basemap', closable:false,  open:true">
+                    <div data-dojo-type="dijit/layout/ContentPane" style=" overflow:auto;">
+Basic
+                        <div id="galleryNode_basemap_8" onClick="setbasemap(this);"  >
+                            <a href="javascript:void(0);">
+                                <div class="esriBasemapGalleryLabelContainer">
+                                    <span alt="Imagery" title="Imagery">Imagery</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div id="galleryNode_basemap_7" onClick="setbasemap(this);">
+                            <a href="javascript:void(0);">
+                                <div class="esriBasemapGalleryLabelContainer">
+                                    <span alt="Imagery with Labels" title="Imagery with Labels">Imagery with Labels</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div id="galleryNode_basemap_6" onClick="setbasemap(this);">
+                            <a href="javascript:void(0);">
+                                <div class="esriBasemapGalleryLabelContainer">
+                                    <span alt="Streets" title="Streets">Streets</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div id="galleryNode_basemap_5" onClick="setbasemap(this);">
+                            <a href="javascript:void(0);">
+                                <div class="esriBasemapGalleryLabelContainer">
+                                    <span alt="Topographic" title="Topographic">Topographic</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div id="galleryNode_basemap_4" onClick="setbasemap(this);">
+                            <a href="javascript:void(0);">
+                                <div class="esriBasemapGalleryLabelContainer">
+                                    <span alt="Gray Canvas" title="Gray Canvas">Gray Canvas</span>
+                                </div>
+                            </a>
+                        </div>
+Special:
+                        <div id="ecoregion" onClick="setbasemap(this);">
+                            <a href="javascript:void(0);">
+                                <div class="esriBasemapGalleryLabelContainer">
+                                    <span alt="Ecoregion" title="Ecoregion">Ecoregion</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div id="hillshade" onClick="setbasemap(this);">
+                            <a href="javascript:void(0);">
+                                <div class="esriBasemapGalleryLabelContainer">
+                                    <span alt="Hillshade" title="Hillshade">Hillshade</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div id="pm" onClick="setbasemap(this);">
+                            <a href="javascript:void(0);">
+                                <div class="esriBasemapGalleryLabelContainer">
+                                    <span alt="pm" title="pm">Parent Materials</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div id="empty" onClick="setbasemap(this);">
+                            <a href="javascript:void(0);">
+                                <div class="esriBasemapGalleryLabelContainer">
+                                    <span alt="empty" title="empty">Empty</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div data-dojo-type="dijit/layout/BorderContainer" 
+                 data-dojo-props="design:'headline', gutters:false" class="claro html not-front not-logged-in no-sidebars page-node page-node- page-node-66 node-type-page section-gis nihilo" style="border-style: ridge; border-width: medium; border-color: inherit; float:left; width:61%; height:700px; margin-left:3%; margin-right:3%">
+                <div id="map" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'" style="height:100%; width:100%">
+                </div>
+            </div>
+
+            <div style="float:left; width:15%; margin-right:5%">
+                <div id="overview" style="border: thin solid #000000; height:280px; width:100%">
+                </div>
+
+                <div style="font-family: Arial, Helvetica, sans-serif; color: #494949; font-size: 16px; width: 100% ;margin-top:30px;">Please select One: </div>
+                <select style="width:100%" name="property" onChange="fnZoomToProperty()" id="property">
+                    <option selected="selected" value="">   </option>
+                </select>
+            </div>
         </div>
-	<div style="width:100%; display:block;">
-	  <div data-dojo-type="dijit/layout/BorderContainer" 
-         data-dojo-props="design:'headline', gutters:false" 
-		 class="claro html not-front not-logged-in no-sidebars page-node page-node- page-node-66 node-type-page section-gis nihilo"
-         style="border-style: ridge; border-width: medium; border-color: inherit; float:left; margin-left:10%; width:55%; height:700px;">
-	
-      <div id="map" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'" style="height:100%; width:100%">
-	  </div>
-	  <div style="position:absolute; right:20px; top:10px; z-Index:999; border-color: white; border-style: ridge; border-width: medium;">
-          <div id="titlepane" data-dojo-type="dijit/TitlePane" data-dojo-props="title:'Switch Basemap', closable:false,  open:false">
-            <div data-dojo-type="dijit/layout/ContentPane" style="width:380px; height:280px; overflow:auto;">
-			
-			<div clase="part1">
-				<div id="galleryNode_basemap_8" onClick="setbasemap(this);"  >
-				<a href="javascript:void(0);">
-					<div class="esriBasemapGalleryLabelContainer">
-						<span alt="Imagery" title="Imagery">Imagery</span>
-					</div>
-				</a>
-				</div>
-
-				<div id="galleryNode_basemap_7" onClick="setbasemap(this);">
-				<a href="javascript:void(0);">
-					<div class="esriBasemapGalleryLabelContainer">
-						<span alt="Imagery with Labels" title="Imagery with Labels">Imagery with Labels</span>
-					</div>
-				</a>
-				</div>
-
-				<div id="galleryNode_basemap_6" onClick="setbasemap(this);">
-				<a href="javascript:void(0);">
-					<div class="esriBasemapGalleryLabelContainer">
-						<span alt="Streets" title="Streets">Streets</span>
-					</div>
-				</a>
-				</div>
-
-				<div id="galleryNode_basemap_5" onClick="setbasemap(this);">
-				<a href="javascript:void(0);">
-					<div class="esriBasemapGalleryLabelContainer">
-					<span alt="Topographic" title="Topographic">Topographic</span>
-					</div>
-				</a>
-				</div>
-
-				<div id="galleryNode_basemap_4" onClick="setbasemap(this);">
-				<a href="javascript:void(0);">
-				<div class="esriBasemapGalleryLabelContainer">
-				<span alt="Gray Canvas" title="Gray Canvas">Gray Canvas</span>
-				</div>
-				</a>
-				</div>
-			</div>
-			</div>
-			<script>
-			require(["dijit/form/Button", "dojo/domReady!"], function(Button){
-			    var button1 = new Button({
-			        onClick: function(){
-						ecoregion.setOpacity(1);
-						pm.setOpacity(0);
-						hillshade.setOpacity(0);
-		        }
-			    }, "button1");
-			    var button2 = new Button({
-			        onClick: function(){
-						hillshade.setOpacity(1);
-						ecoregion.setOpacity(0);
-						pm.setOpacity(0);
-		        }
-			    }, "button2");
-			    var button3 = new Button({
-			        onClick: function(){
-						pm.setOpacity(1);
-						ecoregion.setOpacity(0);
-						hillshade.setOpacity(0);
-		        }
-			    }, "button3");
-    			var button3 = new Button({
-			        onClick: function(){
-						ecoregion.setOpacity(0);
-						hillshade.setOpacity(0);
-						pm.setOpacity(0);
-		        }
-			    }, "button4");
-			});
-			</script>
-			<div class = "part2" >
-				<div id="button1" >Ecoregion</div>
-				<div id="button2" >Hillshade</div>
-				<div id="button3" >PM</div>
-				<div id="button4" >Empty</div>
-			</div>	
-
-		</div>
-      </div>
-	  </div>
-	  
-    </div>
-
-		    
-
-        <div style="float:left; margin-left:30px; width:20%">
-        <div id="overview" style="border: thin solid #000000; height:280px;"></div>
-        <script>
-      	require([
-	        "esri/tasks/query", 
-	        "esri/tasks/QueryTask",
-	        "dojo/dom",
-	        "dojo/on",
-	        "dojo/domReady!"
-	      	], function (Query, QueryTask, dom, on) {
-
-	        var queryTask = new QueryTask("http://maps.lib.purdue.edu:6080/arcgis/rest/services/Purdue/FNR_Property/MapServer/6");
-
-	        var query = new Query();
-	        query.returnGeometry = false;
-	        query.outFields = ["Name","XMin","YMin","XMax","YMax"];
-
-	       
-	          //while loop to query
-	           query.where = "Name <> ''";	
-		       queryTask.execute(query, populateOptions);
-	          //}
-
-	        function populateOptions (results) {
-			var resultCount = results.features.length;
-			var resultItems = [];
-			for (var i = 0; i < resultCount; i++){
-				var featureAttributes = results.features[i].attributes;
-				for (var attr in featureAttributes){
-					resultItems.push(featureAttributes[attr] + ":");
-				}
-				select = document.getElementById("property");
-				var opt= document.createElement('option');
-				temp = resultItems.join("");
-				var values = temp.split(":");		
-				var name = values[0];
-				opt.innerHTML = name;
-				opt.value = temp;
-				select.appendChild(opt);
-				resultItems = [];	
-			}
-        }
-		});
-		
-		function fnZoomToProperty() {
-	        var temp = document.getElementById("property");
-	        if(temp.value!="")
-			{
-				var values = temp.value.split(":");
-				var extent = new esri.geometry.Extent(values[1]/100000, values[2]/100000, values[3]/100000, values[4]/100000, new esri.SpatialReference({ wkid: 4326 }));
-				map.setExtent(extent);
-			}			
-    	}
-        </script>
-        <div style="font-family: Arial, Helvetica, sans-serif; color: #494949; font-size: 16px; margin-top:30px;">Please select One: </div>
-        <select name="property" onChange="fnZoomToProperty()" id="property">
-		<option selected="selected" value="">   </option>
-        </select>
-        </div>
-		</div>
-		
-</body>
+    </body>
 </html>
